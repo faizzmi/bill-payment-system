@@ -1,0 +1,28 @@
+# Create a bill
+POST http://localhost:3000/api/bills
+Content-Type: application/json
+
+{
+  "customer_id": 1,
+  "billing_month": "2025-09",
+  "kwh_usage": 250,
+  "due_date": "2025-10-15"
+}
+
+### Get Pending Bills
+GET http://localhost:3000/api/bills/pending
+
+### Pay a bill
+POST http://localhost:3000/api/payments
+Content-Type: application/json
+
+{
+  "bill_id": 5,
+  "amount": 30.00,
+  "payment_method": "credit_card"
+}
+
+###
+GET http://localhost:3000/api/payment-history?customer_id=1
+
+
