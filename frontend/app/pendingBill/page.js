@@ -7,6 +7,7 @@ export default function PendingBills() {
   const [bills, setBills] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadBills() {
@@ -14,7 +15,7 @@ export default function PendingBills() {
       setError(null);
 
       try {
-        const res = await fetch("http://localhost:5000/api/bills/pending");
+        const res = await fetch(`${API_URL}/bills/pending`);
         if (res.ok) {
           const json = await res.json();
           setBills(json.data || []); // access data array from response

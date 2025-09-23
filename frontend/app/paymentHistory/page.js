@@ -8,6 +8,8 @@ export default function PaymentHistory() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(""); 
+  
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const fetchHistory = async () => {
     if (!customerId) {
@@ -19,7 +21,7 @@ export default function PaymentHistory() {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5000/api/payment-history?customer_id=${customerId}`
+        `${API_URL}/payment-history?customer_id=${customerId}`
       );
 
       if (!res.ok) {
@@ -46,6 +48,7 @@ export default function PaymentHistory() {
   const paymentOptions = [
     { value: "credit_card", label: "Credit Card" },
     { value: "bank_transfer", label: "Bank Transfer" },
+    { value: "cash", label: "Cash" },
   ];
 
   return (

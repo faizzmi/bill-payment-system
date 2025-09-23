@@ -9,6 +9,11 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: "Internal server error" });
+});
+
 
 // Enable CORS for frontend
 app.use(

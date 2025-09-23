@@ -27,7 +27,7 @@ export default function PayBill() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/payments", {
+      const res = await fetch(`${API_URL}/payments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -50,6 +50,7 @@ export default function PayBill() {
   const paymentOptions = [
     { value: "credit_card", label: "Credit Card" },
     { value: "bank_transfer", label: "Bank Transfer" },
+    { value: "cash", label: "Cash" },
   ];
 
   return (
