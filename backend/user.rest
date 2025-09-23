@@ -1,5 +1,5 @@
 # Create a bill
-POST http://localhost:3000/api/bills
+POST http://localhost:5000/api/bills
 Content-Type: application/json
 
 {
@@ -10,19 +10,19 @@ Content-Type: application/json
 }
 
 ### Get Pending Bills
-GET http://localhost:3000/api/bills/pending
+GET http://localhost:5000/api/bills/pending
 
 ### Pay a bill
-POST http://localhost:3000/api/payments
+POST http://localhost:5000/api/payments
 Content-Type: application/json
 
 {
-  "bill_id": 5,
+  "bill_id": 2,
   "amount": 30.00,
   "payment_method": "credit_card"
 }
 
 ###
-GET http://localhost:3000/api/payment-history?customer_id=1
+GET http://localhost:5000/api/payment-history?customer_id=1
 
 
