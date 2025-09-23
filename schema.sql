@@ -29,3 +29,22 @@ CREATE TABLE Payments (
    payment_method VARCHAR(50) NOT NULL,
    status VARCHAR(20) DEFAULT 'paid'
  );
+
+ -- Sample Customers
+INSERT INTO Customers (name, email, account_number, address)
+VALUES 
+('Faiz Azmi', 'faiz.azmi@example.com', 'ACC1001', 'Kuala Lumpur'),
+('John Doe', 'john.doe@example.com', 'ACC1002', 'Penang');
+
+-- Sample Bills
+INSERT INTO Bills (customer_id, billing_month, kwh_usage, bill_amount, due_date, status)
+VALUES
+(1, '2025-08-31', 250, 30.00, '2025-09-15', 'pending'),
+(1, '2025-09-30', 400, 48.00, '2025-10-15', 'pending'),
+(2, '2025-08-31', 300, 36.00, '2025-09-20', 'pending');
+
+-- Sample Payments
+INSERT INTO Payments (bill_id, amount, payment_method, status)
+VALUES
+(1, 30.00, 'credit_card', 'paid'),
+(3, 36.00, 'bank_transfer', 'paid');

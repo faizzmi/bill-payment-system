@@ -7,7 +7,7 @@ export default function PaymentHistory() {
   const [customerId, setCustomerId] = useState("");
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState(""); // for feedback messages
+  const [message, setMessage] = useState(""); 
 
   const fetchHistory = async () => {
     if (!customerId) {
@@ -15,7 +15,7 @@ export default function PaymentHistory() {
       return;
     }
 
-    setMessage(""); // clear previous messages
+    setMessage(""); 
     setLoading(true);
     try {
       const res = await fetch(
@@ -45,9 +45,7 @@ export default function PaymentHistory() {
 
   const paymentOptions = [
     { value: "credit_card", label: "Credit Card" },
-    { value: "debit_card", label: "Debit Card" },
     { value: "bank_transfer", label: "Bank Transfer" },
-    { value: "ewallet", label: "E-Wallet" },
   ];
 
   return (

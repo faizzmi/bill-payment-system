@@ -32,22 +32,24 @@ export default function PayBill() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
-      if (res.ok) {
+    
+      const data = await res.json();
+    
+      if (res.ok && data.success) {
         setMessage("Payment successful!");
         setForm({ bill_id: "", amount: "", payment_method: "credit_card" });
-      } else setMessage("Payment failed.");
+      } else {
+        setMessage(`Payment failed: ${data.message}`);
+      }
     } catch (err) {
       console.error(err);
       setMessage("Error: Could not connect to server");
-    }
+    }    
   };
 
   const paymentOptions = [
     { value: "credit_card", label: "Credit Card" },
-    { value: "debit_card", label: "Debit Card" },
     { value: "bank_transfer", label: "Bank Transfer" },
-    { value: "ewallet", label: "E-Wallet" },
   ];
 
   return (
